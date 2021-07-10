@@ -19,7 +19,68 @@ xui.Class('App', 'xui.Module',{
         iniComponents : function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
-
+            
+            append(
+                xui.create("xui.APICaller")
+                .setHost(host,"api_1")
+                .setResponseDataTarget([
+                    {
+                        "type" : "alert",
+                        "name" : "alert",
+                        "path" : ""
+                    }
+                ])
+                .setQueryURL("https://api.datamuse.com/words")
+                .setQueryData({
+                })
+            );
+            
+            append(
+                xui.create("xui.UI.Input")
+                .setHost(host,"i_ml")
+                .setLeft("14.476190476190476em")
+                .setTop("2.2857142857142856em")
+                .setWidth("22.78095238095238em")
+                .setLabelSize("8em")
+                .setLabelCaption("parameter 1")
+            );
+            
+            append(
+                xui.create("xui.UI.Button")
+                .setHost(host,"xui_ui_button3")
+                .setLeft("16.761904761904763em")
+                .setTop("11.428571428571429em")
+                .setCaption("Get data by APICaller")
+                .onClick([
+                    {
+                        "desc" : "get ml",
+                        "type" : "control",
+                        "target" : "i_ml",
+                        "args" : [
+                            "{page.i_ml.getUIValue()}",
+                            "temp",
+                            "ml"
+                        ],
+                        "method" : "getUIValue",
+                        "redirection" : "other:callback:call",
+                        "event" : 1
+                    },
+                    {
+                        "desc" : "call api",
+                        "type" : "control",
+                        "target" : "api_1",
+                        "args" : [
+                            "{page.api_1.setQueryArgs()}",
+                            "none",
+                            "",
+                            "{temp.ml}"
+                        ],
+                        "method" : "setQueryArgs",
+                        "redirection" : "other:callback:call"
+                    }
+                ])
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
