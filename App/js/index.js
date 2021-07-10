@@ -74,7 +74,8 @@ xui.Class('App', 'xui.Module',{
                             "{page.api_1.setQueryArgs()}",
                             "none",
                             "",
-                            "{temp.ml}"
+                            "{temp.ml}",
+                            "ml"
                         ],
                         "method" : "setQueryArgs",
                         "redirection" : "other:callback:call"
