@@ -93,6 +93,15 @@ xui.Class('App', 'xui.Module',{
                 ])
             );
             
+            append(
+                xui.create("xui.UI.Button")
+                .setHost(host,"btn_2")
+                .setLeft("35.80952380952381em")
+                .setTop("11.428571428571429em")
+                .setCaption("Get data by code")
+                .onClick("_btn_2_onclick")
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
@@ -101,6 +110,25 @@ xui.Class('App', 'xui.Module',{
         customAppend : function(parent, subId, left, top){
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
+        },
+        /**
+         * Fired when user click it
+         * @method onClick [xui.UI.Button event]
+         * @param {xui.UIProfile.} profile  The current control's profile object
+         * @param {Event} e , Dom event object
+         * @param {Element.xui} src  id or Dom Element
+         * @param {} value  Object
+        */
+        _btn_2_onclick:function(profile, e, src, value){
+            var ns = this, uictrl = profile.boxing();
+            
+            xui.fetch("https://api.datamuse.com/words", { 
+                "ml": ns.i_ml.getValue()
+            }, function(rsp){
+                alert ( JSON.strigify(rsp) );
+            }, function(err){
+                alert ( err );
+            });
         }
         /*,
         // To determine how properties affects this module
