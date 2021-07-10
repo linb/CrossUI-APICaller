@@ -101,7 +101,7 @@ xui.Class('App', 'xui.Module',{
                 .setLeft("18.285714285714285em")
                 .setTop("11.428571428571429em")
                 .setWidth("19.35238095238095em")
-                .setCaption("Get data by xui.fetch ( use code)")
+                .setCaption("Get data by xui.fetch ( use event code)")
                 .onClick("_btn_2_onclick")
             );
             
