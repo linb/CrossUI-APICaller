@@ -49,9 +49,10 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.UI.Button")
                 .setHost(host,"btn_1")
-                .setLeft("16.761904761904763em")
-                .setTop("11.428571428571429em")
-                .setCaption("Get data by APICaller")
+                .setLeft("18.285714285714285em")
+                .setTop("6.857142857142857em")
+                .setWidth("19.35238095238095em")
+                .setCaption("Get data by APICaller (use actions)")
                 .onClick([
                     {
                         "desc" : "get ml",
@@ -97,9 +98,10 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.UI.Button")
                 .setHost(host,"btn_2")
-                .setLeft("35.80952380952381em")
+                .setLeft("18.285714285714285em")
                 .setTop("11.428571428571429em")
-                .setCaption("Get data by code")
+                .setWidth("19.35238095238095em")
+                .setCaption("Get data by xui.fetch ( use code)")
                 .onClick("_btn_2_onclick")
             );
             
