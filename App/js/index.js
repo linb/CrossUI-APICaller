@@ -23,6 +23,8 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.APICaller")
                 .setHost(host,"api_1")
+                .setName("api_1")
+                .setQueryURL("https://api.datamuse.com/words")
                 .setResponseDataTarget([
                     {
                         "type" : "alert",
@@ -30,7 +32,6 @@ xui.Class('App', 'xui.Module',{
                         "path" : ""
                     }
                 ])
-                .setQueryURL("https://api.datamuse.com/words")
                 .setQueryData({
                 })
             );
@@ -38,6 +39,7 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.UI.Input")
                 .setHost(host,"i_ml")
+                .setShowDirtyMark(false)
                 .setLeft("14.476190476190476em")
                 .setTop("2.2857142857142856em")
                 .setWidth("22.78095238095238em")
