@@ -23,6 +23,8 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.APICaller")
                 .setHost(host,"api_1")
+                .setName("api_1")
+                .setQueryURL("https://api.datamuse.com/words")
                 .setResponseDataTarget([
                     {
                         "type" : "alert",
@@ -30,7 +32,6 @@ xui.Class('App', 'xui.Module',{
                         "path" : ""
                     }
                 ])
-                .setQueryURL("https://api.datamuse.com/words")
                 .setQueryData({
                 })
             );
@@ -47,7 +48,7 @@ xui.Class('App', 'xui.Module',{
             
             append(
                 xui.create("xui.UI.Button")
-                .setHost(host,"xui_ui_button3")
+                .setHost(host,"btn_1")
                 .setLeft("16.761904761904763em")
                 .setTop("11.428571428571429em")
                 .setCaption("Get data by APICaller")
@@ -66,7 +67,7 @@ xui.Class('App', 'xui.Module',{
                         "event" : 1
                     },
                     {
-                        "desc" : "call api",
+                        "desc" : "set API args",
                         "type" : "control",
                         "target" : "api_1",
                         "args" : [
@@ -77,6 +78,17 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method" : "setQueryArgs",
                         "redirection" : "other:callback:call"
+                    },
+                    {
+                        "desc" : "invoke API",
+                        "type" : "control",
+                        "target" : "api_1",
+                        "args" : [ ],
+                        "method" : "invoke",
+                        "onOK" : 0,
+                        "onKO" : 1,
+                        "okFlag" : "_DI_succeed",
+                        "koFlag" : "_DI_fail"
                     }
                 ])
             );
