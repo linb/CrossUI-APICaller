@@ -127,7 +127,7 @@ xui.Class('App', 'xui.Module',{
             var ns = this, uictrl = profile.boxing();
             
             xui.fetch("https://api.datamuse.com/words", { 
-                "ml": ns.i_ml.getValue()
+                "ml": ns.i_ml.getUIValue()
             }, function(rsp){
                 alert ( JSON.stringify(rsp) );
             }, function(err){
