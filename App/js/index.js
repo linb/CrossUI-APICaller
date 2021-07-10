@@ -23,8 +23,6 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.APICaller")
                 .setHost(host,"api_1")
-                .setName("api_1")
-                .setQueryURL("https://api.datamuse.com/words")
                 .setResponseDataTarget([
                     {
                         "type" : "alert",
@@ -32,6 +30,7 @@ xui.Class('App', 'xui.Module',{
                         "path" : ""
                     }
                 ])
+                .setQueryURL("https://api.datamuse.com/words")
                 .setQueryData({
                 })
             );
@@ -128,7 +127,7 @@ xui.Class('App', 'xui.Module',{
             xui.fetch("https://api.datamuse.com/words", { 
                 "ml": ns.i_ml.getValue()
             }, function(rsp){
-                alert ( JSON.strigify(rsp) );
+                alert ( JSON.stringify(rsp) );
             }, function(err){
                 alert ( err );
             });
